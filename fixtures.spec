@@ -4,7 +4,7 @@
 #
 Name     : fixtures
 Version  : 1.4.0
-Release  : 20
+Release  : 21
 URL      : https://pypi.python.org/packages/source/f/fixtures/fixtures-1.4.0.tar.gz
 Source0  : https://pypi.python.org/packages/source/f/fixtures/fixtures-1.4.0.tar.gz
 Summary  : Fixtures, reusable state for writing clean tests and more.
