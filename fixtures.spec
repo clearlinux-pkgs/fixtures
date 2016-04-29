@@ -4,7 +4,7 @@
 #
 Name     : fixtures
 Version  : 2.0.0
-Release  : 22
+Release  : 23
 URL      : https://pypi.python.org/packages/source/f/fixtures/fixtures-2.0.0.tar.gz
 Source0  : https://pypi.python.org/packages/source/f/fixtures/fixtures-2.0.0.tar.gz
 Summary  : Fixtures, reusable state for writing clean tests and more.
