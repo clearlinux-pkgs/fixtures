@@ -1,6 +1,17 @@
 CHANGES
 =======
 
+3.0.0
+-----
+
+* Release 3.0.0
+* Fixup the MonkeyPatch patch
+* Tweak the new tests for consistency
+* Update the semantics on _fixtures.MonkeyPatch
+* Avoid old versions of pbr - we require modern releases
+* Correct MockPatchMultiple example
+* Ignore .tox
+
 2.0.0
 -----
 
@@ -82,30 +93,30 @@ CHANGES
 ------
 
 * Release 0.3.15
-* * ``FakeProcess`` wait() now supports arguments added in Python 3. (Steve Kowalik)
-* * ``FakeProcess`` wait() now supports arguments added in Python 3. (Steve Kowalik)
+* * ``FakeProcess`` wait() now supports arguments added in Python 3.   (Steve Kowalik)
+*   * ``FakeProcess`` wait() now supports arguments added in Python 3.       (Steve Kowalik)
 * * ``FakeProcess`` now supports kill(). (Steve Kowalik)
-* * ``FakePopen`` now supports being called under a context manager (IE: with). (Steve Kowalik)
-* * ``MonkeyPatch`` now preserves ``staticmethod`` functions. (Dan Kenigsberg)
-* * ``FakeProcess`` now supports kill(). (Steve Kowalik)
-* * ``FakePopen`` now works under a context manager itself. (Steve Kowalik, #1358085)
+* * ``FakePopen`` now supports being called under a context manager (IE: with).   (Steve Kowalik)
+* * ``MonkeyPatch`` now preserves ``staticmethod`` functions.   (Dan Kenigsberg)
+*   * ``FakeProcess`` now supports kill(). (Steve Kowalik)
+* * ``FakePopen`` now works under a context manager itself.   (Steve Kowalik, #1358085)
 * MonkeyPatch staticmethod
 
 0.3.14
 ------
 
 * Release 0.3.14
-* * ``FakePopen`` can now override the returncode attribute. (Robert Collins)
+* * ``FakePopen`` can now override the returncode attribute.   (Robert Collins)
 * More releasing docs
 
 0.3.13
 ------
 
 * Release 0.3.13
-* * Documentation hopefully covers ``TestWithFixtures`` a little better. (Robert Collins, #1102688)
+* * Documentation hopefully covers ``TestWithFixtures`` a little better.   (Robert Collins, #1102688)
 * Ignore an egg-info directory if it exists
-* * ``setup.py`` now lists the ``testtools`` dependency which was missing. (Robert Collins, #1103823)
-* * ``FakePopen`` now accepts all the parameters available in Python 2.7. (Robert Collins)
+* * ``setup.py`` now lists the ``testtools`` dependency which was missing.   (Robert Collins, #1103823)
+* * ``FakePopen`` now accepts all the parameters available in Python 2.7.   (Robert Collins)
 
 0.3.12
 ------
@@ -118,12 +129,12 @@ CHANGES
 ------
 
 * Release 0.3.11
-* * pydoc is recommended as a source of info about fixtures. (Robert Collins, #812845)
-* * The docs for fixtures have been updated to cover the full API. (Robert Collins, #1071649)
-* * ``DetailStream`` was ambiguous about whether it handled bytes or characters, which matters a lot for Python3. It now is deprecated with ByteStream and StringStream replacing it. (Robert Collins)
+* * pydoc is recommended as a source of info about fixtures.   (Robert Collins, #812845)
+* * The docs for fixtures have been updated to cover the full API.   (Robert Collins, #1071649)
+* * ``DetailStream`` was ambiguous about whether it handled bytes or characters,   which matters a lot for Python3. It now is deprecated with ByteStream and   StringStream replacing it. (Robert Collins)
 * Update docs
-* * ``DetailStream`` was ambiguous about whether it handled bytes or characters, which matters a lot for Python3. It now is deprecated with ByteStream and StringStream replacing it. (Robert Collins)
-* * ``FakeLogger`` has been split out into a ``LogHandler`` fixture that can inject arbitrary handlers, giving more flexability. (Jonathan Lange)
+* * ``DetailStream`` was ambiguous about whether it handled bytes or characters,   which matters a lot for Python3. It now is deprecated with ByteStream and   StringStream replacing it. (Robert Collins)
+* * ``FakeLogger`` has been split out into a ``LogHandler`` fixture that can   inject arbitrary handlers, giving more flexability. (Jonathan Lange)
 * Drop the MementoHandler stuff
 * Rest of the tests for LogHandler
 * Give up on MementoHandler, just test LogHandler instead
@@ -132,12 +143,12 @@ CHANGES
 * Extract the handler managing bit of FakeLogger into its own fixture
 * Add MementoHandler
 * Release 0.3.10
-* * New ``DetailStream`` fixture to add file-like object content to testtools details. This allows for easy capture of sys.stdout and sys.stderr for example. (Clark Boylan)
+* * New ``DetailStream`` fixture to add file-like object content to testtools   details. This allows for easy capture of sys.stdout and sys.stderr for   example. (Clark Boylan)
 * Document DetailStream
-* * New ``DetailStream`` fixture to add file-like object content to testtools details. This allows for easy capture of sys.stdout and sys.stderr for example. (Clark Boylan)
-* * Factor out new ``CallMany`` class to isolate the cleanup logic. (Robert Collins)
+* * New ``DetailStream`` fixture to add file-like object content to testtools   details. This allows for easy capture of sys.stdout and sys.stderr for   example. (Clark Boylan)
+* * Factor out new ``CallMany`` class to isolate the cleanup logic.   (Robert Collins)
 * Add 'join' method to TempDir
-* Revert filetree patch, r54. Now in lp:treeshape
+* Revert filetree patch, r54.  Now in lp:treeshape
 * Rename to 'join'
 * Update NEWS
 * Add an 'abspath' helper
@@ -169,7 +180,7 @@ CHANGES
 * Initial creation of FileTree
 * Add a matcher, because I can't bear to write that code again
 * Clean up pyflakes
-* Export TempHomeDir. Otherwise it's imported here for no reason
+* Export TempHomeDir.  Otherwise it's imported here for no reason
 
 0.3.9
 -----
@@ -218,7 +229,7 @@ CHANGES
 * Bump version to 0.3.7 beta
 * Typo
 * Extend TempDir to allow controlling the root directory
-* * On Python 2.7 and above the _fixtures tests are no longer run twice. (Robert Collins)
+* * On Python 2.7 and above the _fixtures tests are no longer run twice.   (Robert Collins)
 * Note in NEWS the new testtools version dependency as well
 * NEWS & README
 * Pretty sure this is a py3 thing
@@ -227,7 +238,7 @@ CHANGES
 * Release 0.3.6
 * Another small API break - sorry. Fixture.getDetails no longer returns the internal details dict (self._details). Access that directly if needed. It now looks for details in used fixtures and returns those as well as details added directly. (RobertCollins, #780806)
 * New fixture ``PackagePathEntry`` which patches the path of an existing package, allowing importing part of it from aonther directory. (Robert Collins)
-* * Details from child fixtures for both Fixture and TestWithFixtures no longer quash same-named details if testtools 0.9.11 is available (for the gather_details helper). (Gavin Panella, #796253)
+* * Details from child fixtures for both Fixture and TestWithFixtures no longer   quash same-named details if testtools 0.9.11 is available (for the   gather_details helper).   (Gavin Panella, #796253)
 * Test failure on some setups in test_cleanUp_raise_first_false_callscleanups_returns_exceptions. (Gavin Panella, #796249)
 * Gather details from fixtures that fail to setUp() in TestWithFixtures
 * Use testtools.helpers.try_import instead of try:except:
@@ -235,7 +246,7 @@ CHANGES
 * Reminder to self to skip test if gather_details is not available
 * Test against types.TracebackType instead of the type of the current traceback in sys.exc_info()
 * Gather details from fixtures that fail to setUp()
-* * New fixture ``PythonPathEntry`` which patches sys.path. (Robert Collins, #737503)
+* * New fixture ``PythonPathEntry`` which patches sys.path.   (Robert Collins, #737503)
 * Better docs for cleanUp and exceptions
 * Document sharing dependencies somewhat
 * Release 0.3.5
@@ -251,7 +262,7 @@ CHANGES
 * Ship new packages
 * Release 0.3.1
 * Add a communicate method to FakeProcess
-* * Experimental PopenFixture providing a test double for testing code that runs external processes. (Robert Collins)
+* * Experimental PopenFixture providing a test double for testing code that runs   external processes. (Robert Collins)
 * Fixup cleanUp protocol for good
 * Stop silently swallowing exceptions during cleanUp
 * Cause cleanup failures to cause test failures
