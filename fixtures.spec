@@ -4,7 +4,7 @@
 #
 Name     : fixtures
 Version  : 3.0.0
-Release  : 26
+Release  : 27
 URL      : http://pypi.debian.net/fixtures/fixtures-3.0.0.tar.gz
 Source0  : http://pypi.debian.net/fixtures/fixtures-3.0.0.tar.gz
 Summary  : Fixtures, reusable state for writing clean tests and more.
