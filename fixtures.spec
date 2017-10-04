@@ -6,7 +6,7 @@
 #
 Name     : fixtures
 Version  : 3.0.0
-Release  : 39
+Release  : 40
 URL      : http://pypi.debian.net/fixtures/fixtures-3.0.0.tar.gz
 Source0  : http://pypi.debian.net/fixtures/fixtures-3.0.0.tar.gz
 Source99 : http://pypi.debian.net/fixtures/fixtures-3.0.0.tar.gz.asc
@@ -14,6 +14,7 @@ Summary  : Fixtures, reusable state for writing clean tests and more.
 Group    : Development/Tools
 License  : Apache-2.0
 Requires: fixtures-legacypython
+Requires: fixtures-python3
 Requires: fixtures-python
 Requires: six
 Requires: testtools
@@ -32,6 +33,7 @@ fixtures: Fixtures with cleanups for testing and convenience.
 %package legacypython
 Summary: legacypython components for the fixtures package.
 Group: Default
+Requires: python-core
 
 %description legacypython
 legacypython components for the fixtures package.
@@ -41,9 +43,19 @@ legacypython components for the fixtures package.
 Summary: python components for the fixtures package.
 Group: Default
 Requires: fixtures-legacypython
+Requires: fixtures-python3
 
 %description python
 python components for the fixtures package.
+
+
+%package python3
+Summary: python3 components for the fixtures package.
+Group: Default
+Requires: python3-core
+
+%description python3
+python3 components for the fixtures package.
 
 
 %prep
@@ -54,7 +66,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1505363320
+export SOURCE_DATE_EPOCH=1507153548
 python2 setup.py build -b py2
 python3 setup.py build -b py3
 
@@ -64,7 +76,7 @@ export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 make check ||:
 %install
-export SOURCE_DATE_EPOCH=1505363320
+export SOURCE_DATE_EPOCH=1507153548
 rm -rf %{buildroot}
 python2 -tt setup.py build -b py2 install --root=%{buildroot} --force
 python3 -tt setup.py build -b py3 install --root=%{buildroot} --force
@@ -80,5 +92,8 @@ echo ----[ mark ]----
 /usr/lib/python2*/*
 
 %files python
+%defattr(-,root,root,-)
+
+%files python3
 %defattr(-,root,root,-)
 /usr/lib/python3*/*
