@@ -6,14 +6,13 @@
 #
 Name     : fixtures
 Version  : 3.0.0
-Release  : 44
+Release  : 45
 URL      : http://pypi.debian.net/fixtures/fixtures-3.0.0.tar.gz
 Source0  : http://pypi.debian.net/fixtures/fixtures-3.0.0.tar.gz
 Source99 : http://pypi.debian.net/fixtures/fixtures-3.0.0.tar.gz.asc
 Summary  : Fixtures, reusable state for writing clean tests and more.
 Group    : Development/Tools
 License  : Apache-2.0
-Requires: fixtures-legacypython
 Requires: fixtures-python3
 Requires: fixtures-python
 Requires: six
@@ -23,26 +22,15 @@ BuildRequires : pip
 BuildRequires : python-dev
 BuildRequires : python3-dev
 BuildRequires : setuptools
-BuildRequires : testtools
 
 %description
 *************************************************************
 fixtures: Fixtures with cleanups for testing and convenience.
 *************************************************************
 
-%package legacypython
-Summary: legacypython components for the fixtures package.
-Group: Default
-Requires: python-core
-
-%description legacypython
-legacypython components for the fixtures package.
-
-
 %package python
 Summary: python components for the fixtures package.
 Group: Default
-Requires: fixtures-legacypython
 Requires: fixtures-python3
 
 %description python
@@ -66,8 +54,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1507153548
-python2 setup.py build -b py2
+export SOURCE_DATE_EPOCH=1523288768
 python3 setup.py build -b py3
 
 %check
@@ -76,20 +63,14 @@ export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 make check ||:
 %install
-export SOURCE_DATE_EPOCH=1507153548
 rm -rf %{buildroot}
-python2 -tt setup.py build -b py2 install --root=%{buildroot} --force
-python3 -tt setup.py build -b py3 install --root=%{buildroot} --force
+python3 -tt setup.py build -b py3 install --root=%{buildroot}
 echo ----[ mark ]----
 cat %{buildroot}/usr/lib/python3*/site-packages/*/requires.txt || :
 echo ----[ mark ]----
 
 %files
 %defattr(-,root,root,-)
-
-%files legacypython
-%defattr(-,root,root,-)
-/usr/lib/python2*/*
 
 %files python
 %defattr(-,root,root,-)
