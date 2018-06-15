@@ -19,7 +19,7 @@ Requires: six
 Requires: testtools
 BuildRequires : pbr
 BuildRequires : pip
-BuildRequires : python-dev
+
 BuildRequires : python3-dev
 BuildRequires : setuptools
 
