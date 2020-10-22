@@ -1,14 +1,5 @@
 # This file contains recursive sources that require this package
-keystoneauth1
-mox3
-oslo.log
-oslo.service
-oslotest
-ovsdbapp
 requests-mock
-stestr
-tempest
-tempest-lib
 testrepository
 testresources
 testtools
