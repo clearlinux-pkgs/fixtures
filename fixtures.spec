@@ -6,7 +6,7 @@
 #
 Name     : fixtures
 Version  : 3.0.0
-Release  : 66
+Release  : 67
 URL      : http://pypi.debian.net/fixtures/fixtures-3.0.0.tar.gz
 Source0  : http://pypi.debian.net/fixtures/fixtures-3.0.0.tar.gz
 Source1  : http://pypi.debian.net/fixtures/fixtures-3.0.0.tar.gz.asc
